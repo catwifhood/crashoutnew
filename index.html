@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- Update Tailwind CSS version to 3.x -->
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+            rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body {
+                cursor: none;
+            }
+            #custom-cursor {
+                position: fixed;
+                pointer-events: none;
+                font-size: 24px; /* Adjust size as needed */
+            }
+
+            @keyframes shake {
+                0% { transform: translate(1px, 1px) rotate(0deg); }
+                10% { transform: translate(-1px, -2px) rotate(-1deg); }
+                20% { transform: translate(-3px, 0px) rotate(1deg); }
+                30% { transform: translate(3px, 2px) rotate(0deg); }
+                40% { transform: translate(1px, -1px) rotate(1deg); }
+                50% { transform: translate(-1px, 2px) rotate(-1deg); }
+                60% { transform: translate(-3px, 1px) rotate(0deg); }
+                70% { transform: translate(3px, 1px) rotate(-1deg); }
+                80% { transform: translate(-1px, -1px) rotate(1deg); }
+                90% { transform: translate(1px, 2px) rotate(0deg); }
+                100% { transform: translate(1px, -2px) rotate(-1deg); }
+            }
+
+            .shake {
+                animation: shake 0.5s;
+                animation-iteration-count: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div id="custom-cursor" class="relative z-[9999]">😡</div>
+            <!-- Use h-[132px] for arbitrary height value -->
+            <div class="bg-[#8D0B15] h-[60px] md:h-[132px] flex items-center justify-center">
+                <h1 class="text-black text-[20px] md:text-[42px] font-bold">x telegram buy <span id="crashout-text">crashout</span></h1>
+            </div>
+            <div class="bg-black">
+                <div
+                    class="text-[#8D0B15] text-[40px] md:text-[100px] font-bold w-full flex justify-center">don’t
+                    crashout 😡 </div>
+                <img src="./image.png" alt="image" />
+                <div class="flex justify-center items-center relative w-full">
+                    <img src="./angry_faces.png" alt="image" />
+                    <div
+                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/5 flex-col items-center">
+                        <p
+                            class="text-[40px] md:text-[70px] text-[#8D0B15] text-center font-semibold">im
+                            boutta crashout 😡</p>
+                        <p
+                            class="bg-[#8D0B15] text-[20px] md:text-[30px] w-full text-center py-2">CA:
+                            COMING SOON</p>
+                    </div>
+                </div>
+                <div
+                    class="flex-col justify-center items-center w-2/3 mx-auto text-center">
+                    <p class="text-[#8D0B15] text-[30px] md:text-[40px] font-bold">wtf is
+                        crashout
+                        tho? 😡</p>
+                    <p class="text-white text-[20px] md:text-[40px]">that feeling when u get
+                        rugged
+                        over and over.
+                        and can’t get that sol back.
+                        and wanna smash your screen but you can’t cos you broke.
+                        thats when you crashout.</p>
+                </div>
+
+                <div
+                    class="border-white border w-4/5 md:w-2/3 mx-auto grid grid-cols-1 md:grid-cols-7 bg-black gap-10 p-4 md:p-10 mt-20">
+                    <div
+                        class="col-span-3 bg-gray-200 flex justify-center items-center text-[40px] h-[400px]">
+                        Video
+                    </div>
+                    <div class="col-span-4 space-y-5 text-[30px] text-white">
+                        <p class="text-[20px] md:text-[30px]">24/7 Crashout News</p>
+                        <p class="text-[20px] md:text-[50px]">Degen, 27, crashes out after
+                            being
+                            rugged for 300 SOL.</p>
+                        <p class="text-[20px] md:text-[30px]">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit.
+                            Praesent blandit nibh in leo placerat pulvinar.
+                            Etiam
+                            sit
+                            amet fringilla ipsum, vitae cursus orci. Quisque
+                            tristique sem
+                            turpis, vel rutrum dui viverra laoreet. Integer
+                            vitae
+                            velit a nisl
+                            iaculis tincidunt in tempus sem. Phasellus dapibus
+                            tincidunt
+                            lacus in auctor. Suspendisse tristique enim augue,
+                            ac
+                            congue
+                            neque porttitor vitae. Ut sed justo sed lacus varius
+                            iaculis.
+                        </p>
+                        <p class="text-[20px] md:text-[30px]">
+                            Fusce elementum vel justo at facilisis. Integer
+                            ultrices
+                            dui
+                            justo, ac tincidunt erat aliquet quis. Curabitur a
+                            ultrices nibh.
+                            Etiam pharetra, felis ac vulputate varius, nulla
+                            nisi
+                            viverra
+                            mauris, eget consequat quam lacus vitae leo. Sed at
+                            orci
+                            fringilla, vulputate diam in, feugiat felis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Add shake effect to crashout text
+            const crashoutText = document.getElementById('crashout-text');
+            const appEle = document.getElementById('app');
+            crashoutText.addEventListener('click', () => {
+                appEle.classList.add('shake');
+                setTimeout(() => {
+                    appEle.classList.remove('shake');
+                }, 500);
+            });
+
+            const cursor = document.getElementById('custom-cursor');
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+        </script>
+    </body>
+</html>
