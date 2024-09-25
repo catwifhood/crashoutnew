@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>$CRASHOUT</title>
+        <link rel="icon" href="./crashout.png" type="image/x-icon">
         <!-- Update Tailwind CSS version to 3.x -->
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
             rel="stylesheet">
@@ -39,11 +40,15 @@
         </style>
     </head>
     <body>
+        <div id="intro-screen" class="flex flex-col items-center justify-center h-screen bg-[#8D0B15] text-white">
+            <div class="text-black mb-2 text-[40px] md:text-[80px] font-bold" onclick="playsound()">Crash Out</div>
+            <div class="text-black text-[40px] md:text-[80px] font-bold" onclick="playsound()">Crash Out</div>
+        </div>
         <div id="app">
             <div id="custom-cursor" class="relative z-[9999]">😡</div>
             <!-- Use h-[132px] for arbitrary height value -->
             <div class="bg-[#8D0B15] h-[60px] md:h-[132px] flex items-center justify-center">
-                <h1 class="text-black text-[20px] md:text-[42px] font-bold">x &nbsp;&nbsp; telegram &nbsp;&nbsp; buy &nbsp;&nbsp; <span id="crashout-text">crashout</span></h1>
+                <h1 class="text-black text-[20px] md:text-[42px] font-bold"><a href="#">x &nbsp;&nbsp; telegram</a> &nbsp;&nbsp; <a href="#">buy</a> &nbsp;&nbsp; <span id="crashout-text">crashout</span></h1>
             </div>
             <div class="bg-black">
                 <div
@@ -78,8 +83,10 @@
                 <div
                     class="border-white border w-4/5 md:w-2/3 mx-auto grid grid-cols-1 md:grid-cols-7 bg-black gap-10 p-4 md:p-10 my-20">
                     <div
-                        class="col-span-3 bg-gray-200 flex justify-center items-center text-[40px] h-[400px]">
-                        Video
+                        class="col-span-3 flex justify-center items-center text-[40px] h-[400px]">
+                        <video autoplay controls>
+                            <source src="./video.mp4">
+                        </video>
                     </div>
                     <div class="col-span-4 space-y-5 text-[30px] text-white">
                         <p class="text-[20px] md:text-[30px]">24/7 Crashout News</p>
@@ -87,36 +94,10 @@
                             being
                             rugged for 300 SOL.</p>
                         <p class="text-[20px] md:text-[30px]">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                            Praesent blandit nibh in leo placerat pulvinar.
-                            Etiam
-                            sit
-                            amet fringilla ipsum, vitae cursus orci. Quisque
-                            tristique sem
-                            turpis, vel rutrum dui viverra laoreet. Integer
-                            vitae
-                            velit a nisl
-                            iaculis tincidunt in tempus sem. Phasellus dapibus
-                            tincidunt
-                            lacus in auctor. Suspendisse tristique enim augue,
-                            ac
-                            congue
-                            neque porttitor vitae. Ut sed justo sed lacus varius
-                            iaculis.
+                            In a devastating blow to the crypto community, a 27-year-old degen, lost 300 SOL in a recent rug pull. The incident took place late last night after he invested in what appeared to be a promising new memecoin. The project, which had generated significant buzz, quickly collapsed, leaving investors with nothing. Like many others, this degen fell victim to the scam as the project founders suddenly disappeared, taking with them an estimated total of 1,500 SOL from multiple victims.
                         </p>
                         <p class="text-[20px] md:text-[30px]">
-                            Fusce elementum vel justo at facilisis. Integer
-                            ultrices
-                            dui
-                            justo, ac tincidunt erat aliquet quis. Curabitur a
-                            ultrices nibh.
-                            Etiam pharetra, felis ac vulputate varius, nulla
-                            nisi
-                            viverra
-                            mauris, eget consequat quam lacus vitae leo. Sed at
-                            orci
-                            fringilla, vulputate diam in, feugiat felis.
+                            I was excited about the potential of this project and trusted the developers," he said in a brief statement. "Losing 300 SOL is tough, but it's a lesson learned." As rug pulls become increasingly common, traders like him are urging others to do thorough research before investing in seemingly lucrative opportunities.
                         </p>
                     </div>
                 </div>
@@ -133,6 +114,14 @@
         </div>
 
         <script>
+            // Add sound functionality
+            function playsound() {
+                const sound = new Audio('./sound.ogg'); // Ensure you have a sound file
+                sound.play();
+
+                document.getElementById('intro-screen').style.display = 'none';
+                document.getElementById('app').style.display = 'block';
+            }
             // Add shake effect to crashout text
             const crashoutText = document.getElementById('crashout-text');
             const appEle = document.getElementById('app');
@@ -148,7 +137,6 @@
                 cursor.style.left = e.clientX + 'px';
                 cursor.style.top = e.clientY + 'px';
             });
-
         </script>
     </body>
 </html>
