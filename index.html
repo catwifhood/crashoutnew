@@ -40,12 +40,12 @@
         </style>
     </head>
     <body>
+        <div id="custom-cursor" class="relative z-[9999]">😡</div>
         <div id="intro-screen" class="flex flex-col items-center justify-center h-screen bg-[#8D0B15] text-white">
             <div class="text-black mb-2 text-[40px] md:text-[80px] font-bold" onclick="playsound()">Crash Out</div>
             <div class="text-black text-[40px] md:text-[80px] font-bold" onclick="playsound()">Crash Out</div>
         </div>
-        <div id="app">
-            <div id="custom-cursor" class="relative z-[9999]">😡</div>
+        <div id="app" style="display: none;">
             
             <div class="bg-[#8D0B15] h-[60px] md:h-[132px] flex items-center justify-center">
                 <h1 class="text-black text-[20px] md:text-[42px] font-bold"><a href="#">x &nbsp;&nbsp; telegram</a> &nbsp;&nbsp; <a href="#">buy</a> &nbsp;&nbsp; <span id="crashout-text">crashout</span></h1>
@@ -119,8 +119,8 @@
                 const sound = new Audio('./sound.ogg'); // Ensure you have a sound file
                 sound.play();
 
-                document.getElementById('intro-screen').style.display = 'none';
                 document.getElementById('app').style.display = 'block';
+                document.getElementById('intro-screen').style.display = 'none';
             }
             // Add shake effect to crashout text
             const crashoutText = document.getElementById('crashout-text');
